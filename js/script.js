@@ -53,8 +53,18 @@ createApp({
                 }
             ],
             curIndex: 0,
+            isHovered: false,
         }
     },
+
+    created () {
+        setInterval(() => {
+            if(!this.isHovered) {
+                this.nextImg();
+            }
+        }, 3000);
+    },
+
     methods: {
         nextImg: function () {
             if (this.curIndex === this.slides.length - 1) {
@@ -70,6 +80,18 @@ createApp({
             } else {
                 this.curIndex--;
             };
-        }
+        },
+
+        showImg: function (index) {
+            this.curIndex = index;  
+        },
+
+        mouseOver: function () {
+            this.isHovered = true;
+        },
+
+        mouseOut: function () {
+            this.isHovered = false;
+        },
     }
 }).mount("#app");
