@@ -62,6 +62,14 @@ createApp({
             } else {
                 this.curIndex++;
             };
+        },
+        
+        prevImg: function () {
+            if (this.curIndex === 0) {
+                this.curIndex = this.slides.length - 1;
+            } else {
+                this.curIndex--;
+            };
         }
     }
 }).mount("#app");
